@@ -1,6 +1,6 @@
 class Planner
 
-  attr_reader :talks, :sessions
+  attr_reader :talks, :tracks
 
   def initialize talks, tracks
     @talks = talks
@@ -8,13 +8,12 @@ class Planner
   end
 
   def plan_conference
-    binding.pry
     processed_talks = Array.new talks.length, false
     tracks.each do |track|
       talks.each_with_index do |talk, index|
         next if processed_talks[index]
-        if session.add? talk
-          session.add talk
+        if track.add? talk
+          track.add talk
           processed_talks[index] = true
         end
       end

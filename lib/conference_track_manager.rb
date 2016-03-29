@@ -1,6 +1,7 @@
 require_relative './ctm/talk'
 require_relative './ctm/session'
 require_relative './ctm/planner'
+require_relative './ctm/splash'
 require 'pry'
 require 'yaml'
 
@@ -34,4 +35,5 @@ else
   talks = init_talks environment["inputs_directory"] + file
   tracks = init_tracks track_count
   Planner.new(talks, tracks).plan_conference
+  Splash.display_plan(tracks, track_count)
 end
