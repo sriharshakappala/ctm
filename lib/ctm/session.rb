@@ -1,9 +1,10 @@
 class Session
 
-  attr_reader :length, :talks
+  attr_reader :length, :talks, :type
 
-  def initialize length
+  def initialize length, type
     @length = length
+    @type = type # :morning or :afternoon
     @talks = []
   end
 
