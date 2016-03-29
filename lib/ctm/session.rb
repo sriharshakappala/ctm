@@ -17,6 +17,10 @@ class Session
     end
   end
 
+  def add? talk
+    talk.length > length ? false : true
+  end
+
   def exists? talk
     @talks.include? talk
   end

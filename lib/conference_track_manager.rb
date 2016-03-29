@@ -1,5 +1,6 @@
 require_relative './ctm/talk'
 require_relative './ctm/session'
+require_relative './ctm/planner'
 require 'pry'
 require 'yaml'
 
@@ -23,7 +24,6 @@ def init_tracks track_count
   sessions
 end
 
-
 if ARGV[0].nil?
   puts "Usage: `ruby conference_track_manager.rb <file_name>`"
   puts "<file_name> must be any of the existing files from the `inputs` directory"
@@ -33,4 +33,5 @@ else
   track_count = ARGV[1].nil? ? 2 : ARGV[1]
   talks = init_talks environment["inputs_directory"] + file
   tracks = init_tracks track_count
+  Planner.new(talks, tracks).plan_conference
 end
