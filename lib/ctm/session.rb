@@ -8,8 +8,12 @@ class Session
   end
 
   def add talk
-    @length = @length - talk.length
-    @talks << talk
+    if talk.length > @length
+      raise 'TalkTooLongException'
+    else
+      @length = @length - talk.length
+      @talks << talk
+    end
   end
 
   def exists? talk
