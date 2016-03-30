@@ -31,7 +31,7 @@ if ARGV[0].nil?
   raise 'NoFileGivenException'
 else
   file = ARGV[0]
-  track_count = ARGV[1].nil? ? 2 : ARGV[1]
+  track_count = ARGV[1].nil? ? 2 : ARGV[1].to_i
   talks = init_talks environment["inputs_directory"] + file
   tracks = init_tracks track_count
   Planner.new(talks, tracks).plan_conference
