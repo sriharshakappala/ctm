@@ -20,7 +20,7 @@ It takes a text file which contains talks list and track count(optional) as argu
 
 ## Usage
 
-  $ ruby lib/conference_track_manager.rb file_name track_count
+  $ `ruby lib/conference_track_manager.rb file_name track_count`
 
   `file_name` is a mandatory parameter. You can place your file in the inputs directory of the repository and specify that file name as argument.
 
