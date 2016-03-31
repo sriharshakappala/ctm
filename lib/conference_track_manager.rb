@@ -2,6 +2,7 @@ require_relative './ctm/talk'
 require_relative './ctm/session'
 require_relative './ctm/planner'
 require_relative './ctm/splash'
+require_relative './ctm/suggester'
 require 'pry'
 require 'yaml'
 
@@ -36,4 +37,5 @@ else
   tracks = init_tracks track_count
   Planner.new(talks, tracks).plan_conference
   Splash.display_plan(tracks, track_count)
+  Suggester.new(tracks, track_count).show_suggestions if environment['suggestions']
 end
