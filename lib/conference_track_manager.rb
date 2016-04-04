@@ -3,6 +3,7 @@ require_relative './ctm/session'
 require_relative './ctm/planner'
 require_relative './ctm/splash'
 require_relative './ctm/suggester'
+require_relative './ctm/utilities'
 require 'pry'
 require 'yaml'
 
@@ -32,8 +33,9 @@ if ARGV[0].nil?
   raise 'NoFileGivenException'
 else
   file = ARGV[0]
-  track_count = ARGV[1].nil? ? 2 : ARGV[1].to_i
+  # track_count = ARGV[1].nil? ? 2 : ARGV[1].to_i
   talks = init_talks environment["inputs_directory"] + file
+  track_count = Utilities.new({talks: talks}).get_track_count_for_talks
   tracks = init_tracks track_count
   Planner.new(talks, tracks).plan_conference
   Splash.display_plan(tracks, track_count)
